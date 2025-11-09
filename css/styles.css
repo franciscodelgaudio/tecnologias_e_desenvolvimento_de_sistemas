@@ -1,109 +1,160 @@
-html,
-body {
-    height: 100%;
-    margin: 0;
-    background-color: white;
+/* ===== Base ===== */
+html, body{
+  height:100%;
+  margin:0 5px;
+  padding:0;
+  background:#fff;
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",
+               Arial,"Noto Sans","Apple Color Emoji","Segoe UI Emoji",
+               "Segoe UI Symbol","Noto Color Emoji";
+}
+.card{ padding:0; margin:0; background:#fff; border-radius:10px; border:none; }
+.card-body{ padding:0; margin:0; }
+
+/* ===== Cabeçalho ===== */
+.cabecalho{
+  padding:0 20px 10px;
+  margin:10px 0;
+  display:flex;
+  width:100%;
+  justify-content:space-between;
+  align-items:center;
+  border-bottom:1px solid #e1e1e1;
+}
+.cabecalho-texto span{ display:block; }
+.cabecalho-texto .titulo{ font-weight:700; }
+.cabecalho-texto .subtitulo{ color:#c0c0c0; }
+.campo-busca{
+  padding:10px 1em; border-radius:10px; width:40%;
+  border:none; background:#ebebeb;
+}
+.botao-icone{
+  display:flex; align-items:center; justify-content:center;
+  border:none; cursor:pointer; border-radius:50%;
+  width:40px; height:40px; color:#c0c0c0; background:#fff;
+}
+.botao-icone:hover{ color:#000; }
+
+/* ===== Banner/Hero ===== */
+.cartaz{ margin-bottom:10px; }
+.banner{
+  position:relative; height:250px; overflow:hidden;
+  margin:10px 0; display:flex; align-items:center; border-radius:10px;
+}
+.banner img{
+  position:absolute; inset:0; width:100%; height:100%;
+  object-fit:cover; z-index:1;
+}
+.banner .texto{
+  position:absolute; z-index:2; color:#fff; padding-left:30px; width:50%;
+}
+.banner .texto .titulo{ display:block; font-weight:700; font-size:30px; margin-bottom:10px; }
+.banner .texto .descricao{ display:block; }
+
+/* ===== Lista de produtos ===== */
+.cartao-menu{
+  border:1px solid #e1e1e1;
+  margin-bottom:24px;
+}
+.titulo-secao{
+  display:block; width:100%;
+  font-weight:700; font-size:20px;
+  padding:10px 20px 0;
+}
+/* Grid responsivo: quantas colunas couberem dentro do card */
+.grade-produtos{
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(260px, 1fr));
+  gap:16px;
+  padding:10px 20px 20px;
+  width:100%;
+}
+.item-produto{ display:block; }
+.cartao-produto{
+  display:flex; flex-direction:column;
+  width:100%; height:100%;
+  border:1px solid #e1e1e1; border-radius:10px;
+  padding:10px;
+}
+.cartao-produto img{
+  width:100%;
+  aspect-ratio:16/9;        /* proporção mais baixa, estilo mock */
+  object-fit:cover;
+  border-radius:10px;
+}
+.cartao-produto .texto span{ display:block; margin:6px 0; }
+.cartao-produto .texto .titulo{ font-weight:700; }
+.cartao-produto .texto .descricao{ color:#7e7e7e; }
+.linha-preco{
+  display:flex; justify-content:space-between; align-items:center;
+  margin-top:auto; padding-top:8px; /* cola no rodapé do card */
+}
+.linha-preco span{ font-weight:700; font-size:19px; }
+.linha-preco button{
+  border:none; border-radius:10px; width:100px; height:40px;
+  background:#000; color:#fff;
 }
 
-.card {
-    padding: 0;
-    margin: 0;
-    background-color: white;
+/* ===== Sidebar (fixa com scroll interno) ===== */
+.cartao-lateral{
+  border:1px solid #e1e1e1;
+  position:sticky; top:16px;
+  margin:10px 0;
+  max-height:calc(100vh - 32px);
+  display:flex;
+}
+.lateral{ flex:1 1 auto; overflow:auto; min-height:0; }
+.lateral img{ width:100%; border-radius:20px; }
+.lateral > *{ display:block; padding:10px; }
+.lateral .titulo{ font-weight:700; }
+.lateral .descricao{ color:#7e7e7e; }
+
+/* ===== Quantidade e Total ===== */
+.quantidade{
+  display:flex; justify-content:space-between; align-items:center; gap:12px;
+}
+.quantidade .rotulo{ color:#7e7e7e; }
+.quantidade .controles{ display:flex; align-items:center; }
+.quantidade .controles button{
+  display:flex; justify-content:center; align-items:center;
+  margin:0 5px; width:20px; height:20px; border:none;
+}
+.quantidade .controles input{
+  width:35px; margin:0 5px; border:1px solid #e1e1e1; border-radius:7px;
+}
+.linha-total{ display:flex; justify-content:space-between; align-items:center; }
+.linha-total span{ font-weight:700; font-size:20px; }
+.linha-total button{
+  width:50%; height:40px; border:none; border-radius:10px; background:#000; color:#fff;
 }
 
-.header {
-    padding: 20px;
-    margin: 0px;
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
+/* --- Correção de sizing global --- */
+*, *::before, *::after { box-sizing: border-box; }
+
+/* Evita que conteúdo retangular “vaze” nos cantos arredondados do card pai */
+.cartao-menu { overflow: hidden; }
+
+/* --- Grade: múltiplas colunas estáveis dentro do card --- */
+.grade-produtos{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  padding: 10px 20px 20px;
+  width: 100%;
 }
 
-.card-header {
-    margin: 10px;
+/* Remove a influência do .card do Bootstrap no wrapper */
+.grade-produtos > .item-produto{
+  display: contents;      /* o filho .cartao-produto vira o grid-item real */
 }
 
-.barra_pesquisa {
-    padding: 10px 1em;
-    border-radius: 10px;
-    width: 40%;
-    border: none;
-    background-color: rgb(235, 235, 235);
-}
+/* Permite o card encolher dentro da coluna do grid sem forçar overflow */
+.cartao-produto{ min-width: 0; }
 
-.btn-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: none;
-    cursor: pointer;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    color: rgb(192, 192, 192);
-    background-color: white;
+/* Quebras amigáveis */
+@media (max-width: 992px){
+  .grade-produtos{ grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
 }
-
-.btn-icon:hover {
-    color: black;
-    border: none;
-}
-
-.text-header span {
-    display: block;
-}
-
-.text-header .principal {
-    font-weight: bold;
-}
-
-.text-header .secundario {
-    color: rgb(192, 192, 192);
-}
-
-.painel_lateral_head {
-    position: sticky;
-    width: 100%;
-    height: 100%;
-    margin-right: 50px;
-}
-
-.painel_lateral img {
-    width: 100%;
-    border-radius: 20px;
-}
-
-.painel_lateral>* {
-    display: block;
-    padding: 10px;
-}
-
-.painel_lateral .titulo {
-    font-weight: bold;
-}
-
-.painel_lateral .descricao {
-    color: rgb(192, 192, 192);
-}
-
-.quantidade {
-    display: flex;
-    justify-content: space-between;
-}
-
-.quantidade input {
-    margin: 0;
-    padding: 0;
-    width: 35px;
-}
-
-.total {
-    display: flex;
-    justify-content: space-between;
-}
-
-.total button {
-    width: 50%;
-    font-size: 100%;
+@media (max-width: 560px){
+  .grade-produtos{ grid-template-columns: 1fr; }
 }
