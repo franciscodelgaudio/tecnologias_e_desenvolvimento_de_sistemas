@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Sacola • Coffee Shop</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Ícones + Bootstrap -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/pedidos.css">
+</head>
+
+<body>
+
+    <div class="card">
+        <div class="card-body cabecalho">
+            <div class="cabecalho-texto">
+                <span class="titulo">Cesta de Pedidos de Café</span>
+                <span class="subtitulo">Finalize seu pedido</span>
+            </div>
+
+            <div class="campo-busca-wrapper">
+                <span class="material-icons">search</span>
+                <input class="campo-busca" type="text" placeholder="Buscar cafés...">
+            </div>
+
+            <a href="pedidos.html" class="botao-icone" aria-label="Ir para sacola">
+                <span class="material-icons">shopping_bag</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="container-sm">
+        <div class="card cartao-form">
+            <div class="card-body">
+                <form action="#" method="post" class="formulario">
+                    <!-- Dados pessoais -->
+                    <fieldset class="bloco">
+                        <legend>Dados pessoais</legend>
+
+                        <div class="row g-3">
+                            <div class="col-12 col-md-6">
+                                <label class="form-label">Nome *</label>
+                                <input class="form-control" type="text" placeholder="Seu nome" required>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label class="form-label">E-mail *</label>
+                                <input class="form-control" type="email" placeholder="email@email.com" required>
+                            </div>
+                        </div>
+
+                        <div class="row g-3 mt-0">
+                            <div class="col-12 col-md-6">
+                                <label class="form-label">Cidade</label>
+                                <input class="form-control" list="cidades" placeholder="Digite ou escolha">
+                                <datalist id="cidades">
+                                    <option value="Cascavel">
+                                    <option value="Toledo">
+                                    <option value="Foz do Iguaçu">
+                                </datalist>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label class="form-label">Data de retirada *</label>
+                                <input class="form-control" type="date" required>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <!-- Endereço -->
+                    <fieldset class="bloco">
+                        <legend>Endereço</legend>
+
+                        <div class="row g-3">
+                            <div class="col-12 col-md-8">
+                                <label class="form-label">Rua</label>
+                                <input class="form-control" type="text" placeholder="Ex.: Av. Brasil, Centro">
+                            </div>
+                            <div class="col-6 col-md-2">
+                                <label class="form-label">Número</label>
+                                <input class="form-control" type="number" min="0" step="1" placeholder="15">
+                            </div>
+                            <div class="col-6 col-md-2">
+                                <label class="form-label">UF</label>
+                                <select class="form-select">
+                                    <option selected>PR</option>
+                                    <option>SP</option>
+                                    <option>RJ</option>
+                                    <option>MG</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">Complemento</label>
+                                <textarea class="form-control" rows="3"
+                                    placeholder="Apartamento, bloco, ponto de referência..."></textarea>
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <!-- Detalhes do pedido -->
+                    <fieldset class="bloco">
+                        <legend>Detalhes do pedido</legend>
+
+                        <div class="form-linha mt-2">
+                            <div class="me-4">
+                                <label class="form-label d-block">Tamanho</label>
+                                <div class="linha-inline">
+                                    <label class="inline form-check-label"><input class="form-check-input me-1"
+                                            type="radio" name="tam"> Pequeno</label>
+                                    <label class="inline form-check-label"><input class="form-check-input me-1"
+                                            type="radio" name="tam"> Médio</label>
+                                    <label class="inline form-check-label"><input class="form-check-input me-1"
+                                            type="radio" name="tam"> Grande</label>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="form-label d-block">Adicionais</label>
+                                <div class="linha-inline wrap">
+                                    <label class="inline form-check-label"><input class="form-check-input me-1"
+                                            type="checkbox"> Canela</label>
+                                    <label class="inline form-check-label"><input class="form-check-input me-1"
+                                            type="checkbox"> Chocolate</label>
+                                    <label class="inline form-check-label"><input class="form-check-input me-1"
+                                            type="checkbox"> Chantilly</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row g-3 mt-1">
+                            <div class="col-12 col-md-6">
+                                <label class="form-label">Cupom</label>
+                                <input class="form-control" type="text" placeholder="EX: CAFE10">
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <label class="form-label">Comprovante (arquivo)</label>
+                                <input class="form-control" type="file" accept=".jpg,.png,.pdf">
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <!-- Tabela resumo -->
+                    <div class="bloco">
+                        <legend>Resumo do pedido</legend>
+                        <div class="table-responsive">
+                            <table class="table tabela-resumo align-middle">
+                                <thead>
+                                    <tr>
+                                        <th>Item</th>
+                                        <th class="text-center">Tam.</th>
+                                        <th class="text-center">Qtd</th>
+                                        <th class="text-end">Preço</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Capuccino</td>
+                                        <td class="text-center">M</td>
+                                        <td class="text-center">1</td>
+                                        <td class="text-end">R$ 21,40</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Lista para cumprir requisito -->
+                    <div class="bloco">
+                        <legend>Passos para finalizar</legend>
+                        <ul class="ps-3">
+                            <li>Confirme seus dados</li>
+                            <li>Revise o pedido</li>
+                            <li>Envie o formulário</li>
+                        </ul>
+                    </div>
+
+                    <!-- Ações -->
+                    <div class="acoes">
+                        <input type="reset" value="Limpar">
+                        <input type="submit" value="Finalizar Pedido">
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Botão fixo (position:fixed) -->
+    <a class="btn-topo" href="#topo" aria-label="Voltar ao topo">
+        <span class="material-icons">arrow_upward</span>
+    </a>
+
+    <!-- Bootstrap JS (Accordion/Carousel se você reutilizar aqui) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../javascript/script.js"></script>
+</body>
+
+</html>

@@ -1,141 +1,313 @@
 /* ===== Base ===== */
-html, body{
-  height:100%;
-  margin:0 5px;
-  padding:0;
-  background:#fff;
-  font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",
-               Arial,"Noto Sans","Apple Color Emoji","Segoe UI Emoji",
-               "Segoe UI Symbol","Noto Color Emoji";
+html,
+body {
+  height: 100%;
+  margin: 0 5px;
+  padding: 0;
+  background: #fff;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
 }
-.card{ padding:0; margin:0; background:#fff; border-radius:10px; border:none; }
-.card-body{ padding:0; margin:0; }
 
-/* ===== Cabeçalho ===== */
-.cabecalho{
-  padding:0 20px 10px;
-  margin:10px 0;
-  display:flex;
-  width:100%;
-  justify-content:space-between;
-  align-items:center;
-  border-bottom:1px solid #e1e1e1;
+.card {
+  padding: 0;
+  margin: 0;
+  background: #fff;
+  border-radius: 10px;
+  border: none;
 }
-.cabecalho-texto span{ display:block; }
-.cabecalho-texto .titulo{ font-weight:700; }
-.cabecalho-texto .subtitulo{ color:#c0c0c0; }
-.campo-busca{
-  padding:10px 1em; border-radius:10px; width:40%;
-  border:none; background:#ebebeb;
-}
-.botao-icone{
-  display:flex; align-items:center; justify-content:center;
-  border:none; cursor:pointer; border-radius:50%;
-  width:40px; height:40px; color:#c0c0c0; background:#fff;
-}
-.botao-icone:hover{ color:#000; }
 
-/* ===== Banner/Hero ===== */
-.cartaz{ margin-bottom:10px; }
-.banner{
-  position:relative; height:250px; overflow:hidden;
-  margin:10px 0; display:flex; align-items:center; border-radius:10px;
+.card-body {
+  padding: 0;
+  margin: 0;
 }
-.banner img{
-  position:absolute; inset:0; width:100%; height:100%;
-  object-fit:cover; z-index:1;
+
+.cabecalho {
+  padding: 0 20px 10px;
+  margin: 10px 0;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e1e1e1;
 }
-.banner .texto{
-  position:absolute; z-index:2; color:#fff; padding-left:30px; width:50%;
+
+.cabecalho-texto span {
+  display: block;
 }
-.banner .texto .titulo{ display:block; font-weight:700; font-size:30px; margin-bottom:10px; }
-.banner .texto .descricao{ display:block; }
+
+.cabecalho-texto .titulo {
+  font-weight: 700;
+}
+
+.cabecalho-texto .subtitulo {
+  color: #c0c0c0;
+}
+
+.campo-busca {
+  padding: 10px 1em;
+  border-radius: 10px;
+  width: 100%;
+  border: none;
+  background: #ebebeb;
+}
+
+.campo-busca-wrapper {
+  flex: 0 0 50%;
+}
+
+.botao-icone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  color: #c0c0c0;
+  background: #fff;
+  text-decoration: none;
+}
+
+.icone-lateral {
+  display: flex;
+}
+
+.material-icons {
+  font-size: 30px;
+}
+
+.botao-icone:hover {
+  color: #000;
+}
+
+.carousel {
+  margin-bottom: 10px;
+}
+
+.carousel-inner {
+  position: relative;
+  height: 250px;
+  overflow: hidden;
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.carousel-inner .carousel-item img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.carousel-inner .carousel-item .texto {
+  position: absolute;
+  z-index: 2;
+  color: #fff;
+  padding-left: 30px;
+  width: 50%;
+}
+
+.carousel-inner .carousel-item .texto .titulo {
+  display: block;
+  font-weight: 700;
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.carousel-inner .carousel-item .texto .descricao {
+  display: block;
+}
 
 /* ===== Lista de produtos ===== */
-.cartao-menu{
-  border:1px solid #e1e1e1;
-  margin-bottom:24px;
+.cartao-menu {
+  border: 1px solid #e1e1e1;
+  margin-bottom: 24px;
 }
-.titulo-secao{
-  display:block; width:100%;
-  font-weight:700; font-size:20px;
-  padding:10px 20px 0;
+
+.titulo-secao {
+  display: block;
+  width: 100%;
+  font-weight: 700;
+  font-size: 20px;
+  padding: 10px 20px 0;
 }
+
 /* Grid responsivo: quantas colunas couberem dentro do card */
-.grade-produtos{
-  display:grid;
-  grid-template-columns:repeat(auto-fill, minmax(260px, 1fr));
-  gap:16px;
-  padding:10px 20px 20px;
-  width:100%;
+.grade-produtos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+  padding: 10px 20px 20px;
+  width: 100%;
 }
-.item-produto{ display:block; }
-.cartao-produto{
-  display:flex; flex-direction:column;
-  width:100%; height:100%;
-  border:1px solid #e1e1e1; border-radius:10px;
-  padding:10px;
+
+.item-produto {
+  display: block;
 }
-.cartao-produto img{
-  width:100%;
-  aspect-ratio:16/9;        /* proporção mais baixa, estilo mock */
-  object-fit:cover;
-  border-radius:10px;
+
+.cartao-produto {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #e1e1e1;
+  border-radius: 10px;
+  padding: 10px;
 }
-.cartao-produto .texto span{ display:block; margin:6px 0; }
-.cartao-produto .texto .titulo{ font-weight:700; }
-.cartao-produto .texto .descricao{ color:#7e7e7e; }
-.linha-preco{
-  display:flex; justify-content:space-between; align-items:center;
-  margin-top:auto; padding-top:8px; /* cola no rodapé do card */
+
+.cartao-produto img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  /* proporção mais baixa, estilo mock */
+  object-fit: cover;
+  border-radius: 10px;
 }
-.linha-preco span{ font-weight:700; font-size:19px; }
-.linha-preco button{
-  border:none; border-radius:10px; width:100px; height:40px;
-  background:#000; color:#fff;
+
+.cartao-produto .texto span {
+  display: block;
+  margin: 6px 0;
+}
+
+.cartao-produto .texto .titulo {
+  font-weight: 700;
+}
+
+.cartao-produto .texto .descricao {
+  color: #7e7e7e;
+}
+
+.linha-preco {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 8px;
+  /* cola no rodapé do card */
+}
+
+.linha-preco span {
+  font-weight: 700;
+  font-size: 19px;
+}
+
+.linha-preco button {
+  border: none;
+  border-radius: 10px;
+  width: 100px;
+  height: 40px;
+  background: #000;
+  color: #fff;
 }
 
 /* ===== Sidebar (fixa com scroll interno) ===== */
-.cartao-lateral{
-  border:1px solid #e1e1e1;
-  position:sticky; top:16px;
-  margin:10px 0;
-  max-height:calc(100vh - 32px);
-  display:flex;
+.cartao-lateral {
+  border: 1px solid #e1e1e1;
+  position: sticky;
+  top: 16px;
+  margin: 10px 0;
+  max-height: calc(100vh - 32px);
+  display: flex;
 }
-.lateral{ flex:1 1 auto; overflow:auto; min-height:0; }
-.lateral img{ width:100%; border-radius:20px; }
-.lateral > *{ display:block; padding:10px; }
-.lateral .titulo{ font-weight:700; }
-.lateral .descricao{ color:#7e7e7e; }
+
+.lateral {
+  flex: 1 1 auto;
+  overflow: auto;
+  min-height: 0;
+}
+
+.lateral img {
+  width: 100%;
+  border-radius: 20px;
+}
+
+.lateral>* {
+  display: block;
+  padding: 10px;
+}
+
+.lateral .titulo {
+  font-weight: 700;
+}
+
+.lateral .descricao {
+  color: #7e7e7e;
+}
 
 /* ===== Quantidade e Total ===== */
-.quantidade{
-  display:flex; justify-content:space-between; align-items:center; gap:12px;
+.quantidade {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
 }
-.quantidade .rotulo{ color:#7e7e7e; }
-.quantidade .controles{ display:flex; align-items:center; }
-.quantidade .controles button{
-  display:flex; justify-content:center; align-items:center;
-  margin:0 5px; width:20px; height:20px; border:none;
+
+.quantidade .rotulo {
+  color: #7e7e7e;
 }
-.quantidade .controles input{
-  width:35px; margin:0 5px; border:1px solid #e1e1e1; border-radius:7px;
+
+.quantidade .controles {
+  display: flex;
+  align-items: center;
 }
-.linha-total{ display:flex; justify-content:space-between; align-items:center; }
-.linha-total span{ font-weight:700; font-size:20px; }
-.linha-total button{
-  width:50%; height:40px; border:none; border-radius:10px; background:#000; color:#fff;
+
+.quantidade .controles button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 5px;
+  width: 20px;
+  height: 20px;
+  border: none;
+}
+
+.quantidade .controles input {
+  width: 35px;
+  margin: 0 5px;
+  border: 1px solid #e1e1e1;
+  border-radius: 7px;
+}
+
+.linha-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.linha-total span {
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.linha-total button {
+  width: 50%;
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+  background: #000;
+  color: #fff;
 }
 
 /* --- Correção de sizing global --- */
-*, *::before, *::after { box-sizing: border-box; }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
 /* Evita que conteúdo retangular “vaze” nos cantos arredondados do card pai */
-.cartao-menu { overflow: hidden; }
+.cartao-menu {
+  overflow: hidden;
+}
 
 /* --- Grade: múltiplas colunas estáveis dentro do card --- */
-.grade-produtos{
+.grade-produtos {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 16px;
@@ -144,17 +316,154 @@ html, body{
 }
 
 /* Remove a influência do .card do Bootstrap no wrapper */
-.grade-produtos > .item-produto{
-  display: contents;      /* o filho .cartao-produto vira o grid-item real */
+.grade-produtos>.item-produto {
+  display: contents;
+  /* o filho .cartao-produto vira o grid-item real */
 }
 
 /* Permite o card encolher dentro da coluna do grid sem forçar overflow */
-.cartao-produto{ min-width: 0; }
+.cartao-produto {
+  min-width: 0;
+}
 
 /* Quebras amigáveis */
-@media (max-width: 992px){
-  .grade-produtos{ grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+@media (max-width: 992px) {
+  .grade-produtos {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
 }
-@media (max-width: 560px){
-  .grade-produtos{ grid-template-columns: 1fr; }
+
+@media (max-width: 560px) {
+  .grade-produtos {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Hero Carousel ocupa o lugar do antigo banner */
+.hero-carousel .carousel-inner {
+  height: 250px;
+  /* mesma altura "mock" do seu banner */
+}
+
+@media (min-width: 992px) {
+  .hero-carousel .carousel-inner {
+    height: 340px;
+  }
+}
+
+/* Cada slide preenche e permite overlay */
+.hero-carousel .carousel-item {
+  position: relative;
+  height: 100%;
+}
+
+/* Gradiente para dar legibilidade ao texto (como no banner estático) */
+.hero-carousel .carousel-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(0, 0, 0, .45), rgba(0, 0, 0, 0.05) 60%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Imagem cobre todo o espaço */
+.hero-carousel .carousel-item img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* Texto sobreposto — mesmas características do seu header/banner */
+.hero-carousel .carousel-item .texto {
+  position: absolute;
+  z-index: 2;
+  left: 30px;
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff;
+  width: min(50%, 560px);
+}
+
+.hero-carousel .carousel-item .texto .titulo {
+  display: block;
+  font-weight: 700;
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.hero-carousel .carousel-item .texto .descricao {
+  display: block;
+  opacity: .95;
+}
+
+/* Badge estilinho "chip" como etiqueta do banner */
+.badge-hero {
+  display: inline-block;
+  padding: .25em .75em;
+  background: #fff;
+  color: #000;
+  border-radius: 999px;
+  font-size: .85rem;
+  margin-bottom: 8px;
+}
+
+/* Ajuste suave dos indicadores para não poluir o texto */
+.hero-carousel .carousel-indicators [data-bs-target] {
+  background-color: rgba(255, 255, 255, .8);
+}
+
+.hero-carousel .carousel-control-prev-icon,
+.hero-carousel .carousel-control-next-icon {
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, .4));
+}
+
+/* se já existirem, pode manter os estilos que você tem */
+.badge-ajuda {
+  display: inline-block;
+  padding: .25em .75em;
+  background: #000;
+  color: #fff;
+  border-radius: 999px;
+}
+
+.dica-oculta {
+  display: none;
+  color: #777;
+  margin-top: 6px;
+}
+
+/* Campo de busca com ícone interno */
+.campo-busca-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 250px;
+  /* ajuste se quiser maior/menor */
+}
+
+.campo-busca-wrapper .material-icons {
+  position: absolute;
+  left: 10px;
+  color: #777;
+  font-size: 20px;
+  pointer-events: none;
+}
+
+.campo-busca {
+  width: 100%;
+  padding: 8px 12px 8px 38px;
+  /* espaço para o ícone */
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color .2s;
+}
+
+.campo-busca:focus {
+  border-color: #000;
 }

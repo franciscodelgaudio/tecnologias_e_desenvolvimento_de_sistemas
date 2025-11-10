@@ -2,49 +2,92 @@
 <html lang="pt-br">
 
 <head>
+    <meta charset="utf-8" />
     <title>Coffee Shop</title>
-    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 
 <body>
+
     <div class="card">
         <div class="card-body cabecalho">
             <div class="cabecalho-texto">
                 <span class="titulo">Vamos comprar café</span>
                 <span class="subtitulo">Procure seus favoritos...</span>
             </div>
-            <input class="campo-busca" type="text" placeholder="Busque cafés...">
-            <a href="bag.html" class="botao-icone">
+
+            <div class="campo-busca-wrapper">
+                <span class="material-icons">search</span>
+                <input class="campo-busca" type="text" placeholder="Buscar cafés...">
+            </div>
+
+            <a href="pedidos.html" class="botao-icone" aria-label="Ir para sacola">
                 <span class="material-icons">shopping_bag</span>
             </a>
         </div>
     </div>
 
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-9">
+    <div class="container-fluid my-3">
+        <div class="row g-3">
+            <div class="col-12 col-lg-9">
                 <div class="card cartaz">
-                    <div class="card-body banner">
-                        <span>Escolha um café no menu</span>
-                        <div class="texto">
-                            <span class="titulo">Feito Com Os Melhores Grãos De Café</span>
-                            <span class="descricao">Descrição do título...</span>
+                    <div class="card-body p-0">
+                        <div id="heroCafe" class="carousel slide hero-carousel" data-bs-ride="carousel"
+                            data-bs-interval="5000">
+                            <div class="carousel-inner rounded-4 overflow-hidden">
+                                <div class="carousel-item active">
+                                    <img class="d-block w-100" src="../elements/coffee1.jpg" alt="espresso">
+                                    <div class="texto">
+                                        <span class="titulo">Feito Com Os Melhores Grãos De Café</span>
+                                        <span class="descricao">Descrição do título...</span>
+                                    </div>
+                                </div>
+
+                                <div class="carousel-item">
+                                    <img class="d-block w-100"
+                                        src="https://static.dw.com/image/18209219_1004.webp"
+                                        alt="latte">
+                                    <div class="texto">
+                                        <span class="titulo">Latte cremoso e cappuccino</span>
+                                        <span class="descricao">Escolha seu tamanho e adicione à sacola</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button class="carousel-control-prev" type="button" data-bs-target="#heroCafe"
+                                data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Anterior</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#heroCafe"
+                                data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Próximo</span>
+                            </button>
+
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#heroCafe" data-bs-slide-to="0" class="active"
+                                    aria-current="true" aria-label="Slide 1"></button>
+                                <button type="button" data-bs-target="#heroCafe" data-bs-slide-to="1"
+                                    aria-label="Slide 2"></button>
+                            </div>
                         </div>
-                        <img src="../elements/coffee1.jpg" alt="">
                     </div>
                 </div>
 
-                <div class="card cartao-menu">
+                <div class="card cartao-menu mt-3">
                     <div class="card-body">
                         <span class="titulo-secao">Escolha um café do menu</span>
 
                         <div class="grade-produtos">
                             <div class="card item-produto">
                                 <div class="card-body cartao-produto">
-                                    <img src="https://blog.lojasrenner.com.br/wp-content/uploads/2023/07/receitas-de-cafe-interno_2x.png"
+                                    <img src="https://forbes.com.br/wp-content/uploads/2021/08/agro-cafe%CC%81-160821-Wenderson-Araujo_Trilux_CNA-768x512.jpg"
                                         alt="">
                                     <div class="texto">
                                         <span class="titulo">Coffee Gayo</span>
@@ -52,99 +95,48 @@
                                     </div>
                                     <div class="linha-preco">
                                         <span>$21.4</span>
-                                        <button>Adicionar</button>
+                                        <button type="button">Adicionar</button>
                                     </div>
                                 </div>
 
                                 <div class="card-body cartao-produto">
-                                    <img src="https://blog.lojasrenner.com.br/wp-content/uploads/2023/07/receitas-de-cafe-interno_2x.png"
+                                    <img src="https://forbes.com.br/wp-content/uploads/2021/08/agro-cafe%CC%81-160821-Wenderson-Araujo_Trilux_CNA-768x512.jpg"
                                         alt="">
                                     <div class="texto">
-                                        <span class="titulo">Coffee Gayo</span>
-                                        <span class="descricao">Lorem ipsum...</span>
+                                        <span class="titulo">Latte</span>
+                                        <span class="descricao">Cremosidade na medida.</span>
                                     </div>
                                     <div class="linha-preco">
-                                        <span>$21.4</span>
-                                        <button>Adicionar</button>
+                                        <span>$19.9</span>
+                                        <button type="button">Adicionar</button>
                                     </div>
                                 </div>
 
                                 <div class="card-body cartao-produto">
-                                    <img src="https://blog.lojasrenner.com.br/wp-content/uploads/2023/07/receitas-de-cafe-interno_2x.png"
+                                    <img src="https://forbes.com.br/wp-content/uploads/2021/08/agro-cafe%CC%81-160821-Wenderson-Araujo_Trilux_CNA-768x512.jpg"
                                         alt="">
                                     <div class="texto">
-                                        <span class="titulo">Coffee Gayo</span>
-                                        <span class="descricao">Lorem ipsum...</span>
+                                        <span class="titulo">Espresso</span>
+                                        <span class="descricao">Clássico e intenso.</span>
                                     </div>
                                     <div class="linha-preco">
-                                        <span>$21.4</span>
-                                        <button>Adicionar</button>
+                                        <span>$12.0</span>
+                                        <button type="button">Adicionar</button>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
 
-                                <div class="card-body cartao-produto">
-                                    <img src="https://blog.lojasrenner.com.br/wp-content/uploads/2023/07/receitas-de-cafe-interno_2x.png"
-                                        alt="">
-                                    <div class="texto">
-                                        <span class="titulo">Coffee Gayo</span>
-                                        <span class="descricao">Lorem ipsum...</span>
-                                    </div>
-                                    <div class="linha-preco">
-                                        <span>$21.4</span>
-                                        <button>Adicionar</button>
-                                    </div>
-                                </div>
-
-                                <div class="card-body cartao-produto">
-                                    <img src="https://blog.lojasrenner.com.br/wp-content/uploads/2023/07/receitas-de-cafe-interno_2x.png"
-                                        alt="">
-                                    <div class="texto">
-                                        <span class="titulo">Coffee Gayo</span>
-                                        <span class="descricao">Lorem ipsum...</span>
-                                    </div>
-                                    <div class="linha-preco">
-                                        <span>$21.4</span>
-                                        <button>Adicionar</button>
-                                    </div>
-                                </div>
-
-                                <div class="card-body cartao-produto">
-                                    <img src="https://blog.lojasrenner.com.br/wp-content/uploads/2023/07/receitas-de-cafe-interno_2x.png"
-                                        alt="">
-                                    <div class="texto">
-                                        <span class="titulo">Coffee Gayo</span>
-                                        <span class="descricao">Lorem ipsum...</span>
-                                    </div>
-                                    <div class="linha-preco">
-                                        <span>$21.4</span>
-                                        <button>Adicionar</button>
-                                    </div>
-                                </div>
-
-                                <div class="card-body cartao-produto">
-                                    <img src="https://blog.lojasrenner.com.br/wp-content/uploads/2023/07/receitas-de-cafe-interno_2x.png"
-                                        alt="">
-                                    <div class="texto">
-                                        <span class="titulo">Coffee Gayo</span>
-                                        <span class="descricao">Lorem ipsum...</span>
-                                    </div>
-                                    <div class="linha-preco">
-                                        <span>$21.4</span>
-                                        <button>Adicionar</button>
-                                    </div>
-                                </div>
-
-                                <div class="card-body cartao-produto">
-                                    <img src="https://blog.lojasrenner.com.br/wp-content/uploads/2023/07/receitas-de-cafe-interno_2x.png"
-                                        alt="">
-                                    <div class="texto">
-                                        <span class="titulo">Coffee Gayo</span>
-                                        <span class="descricao">Lorem ipsum...</span>
-                                    </div>
-                                    <div class="linha-preco">
-                                        <span>$21.4</span>
-                                        <button>Adicionar</button>
-                                    </div>
+                        <div class="accordion my-3 px-4" id="faq">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="h1">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#c1">
+                                        Posso retirar no balcão?
+                                    </button>
+                                </h2>
+                                <div id="c1" class="accordion-collapse collapse show" data-bs-parent="#faq">
+                                    <div class="accordion-body">Sim, selecione a data no formulário da sacola.</div>
                                 </div>
                             </div>
                         </div>
@@ -152,7 +144,7 @@
                 </div>
             </div>
 
-            <div class="col-3">
+            <div class="col-12 col-lg-3">
                 <div class="card cartao-lateral">
                     <div class="card-body lateral">
                         <img src="https://blog.lojasrenner.com.br/wp-content/uploads/2023/07/receitas-de-cafe-interno_2x.png"
@@ -162,24 +154,24 @@
 
                         <div class="quantidade">
                             <div class="rotulo"><span>Quantidade</span></div>
-                            <div class="controles">
-                                <button type="button" onclick="decIncTotal(this, -1)">-</button>
+                            <div class="controles" data-item-id="coffee-gayo">
+                                <button type="button" data-action="dec">-</button>
                                 <input type="number" value="1" min="1">
-                                <button type="button" onclick="decIncTotal(this, 1)">+</button>
+                                <button type="button" data-action="inc">+</button>
                             </div>
                         </div>
 
                         <div class="linha-total">
-                            <span>$21.4</span>
-                            <button>Adicionar</button>
+                            <span id="totalValor">$21.4</span>
+                            <button type="button">Adicionar</button>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../javascript/script.js"></script>
 </body>
 
