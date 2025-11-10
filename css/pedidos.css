@@ -1,290 +1,21 @@
-/* ===== Complemento leve ao styles.css ===== */
-
-
-/* Título/seção com rem (requisito) */
-.titulo-secao {
-  font-size: 1.25rem;
-  font-weight: 700;
-  display: block;
-  margin-bottom: 12px;
-}
-
-/* Campo de busca com ícone interno */
-.campo-busca-wrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
-  width: 250px;
-  /* ajuste se quiser maior/menor */
-}
-
-.campo-busca-wrapper .material-icons {
-  position: absolute;
-  left: 10px;
-  color: #777;
-  font-size: 20px;
-  pointer-events: none;
-}
-
-.campo-busca {
-  width: 100%;
-  padding: 8px 12px 8px 38px;
-  /* espaço para o ícone */
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  outline: none;
-  transition: border-color .2s;
-}
-
-.campo-busca:focus {
-  border-color: #000;
-}
-
-/* Cartão de formulário e etiqueta absoluta */
-.cartao-form {
-  border: 1px solid #e1e1e1;
-  border-radius: 10px;
-  position: relative;
-  /* para posicionar etiqueta */
-  overflow: hidden;
-}
-
-.cartao-form .card-body {
-  padding: 20px;
-}
-
-/* Exemplo de position:absolute */
-.etiqueta {
-  position: absolute;
-  top: -10px;
-  right: 12px;
-  display: inline-block;
-  /* inline-block (requisito) */
-  padding: 0.25em 0.75em;
-  /* em */
-  background: #000;
-  color: #fff;
-  border-radius: 999px;
-  font-size: 0.75rem;
-}
-
-/* Fieldsets e linhas do form */
-.bloco {
-  margin-bottom: 18px;
-}
-
-.formulario .form-label {
-  font-weight: 600;
-}
-
-.form-linha {
-  display: flex;
-  gap: 16px;
-  align-items: flex-start;
-  flex-wrap: wrap;
-}
-
-/* flex (requisito) */
-.linha-inline {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.inline {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-/* Tabela resumo */
-.tabela-resumo thead th {
-  border-bottom: 1px solid #e1e1e1;
-}
-
-.tabela-resumo tbody td {
-  border-top: 1px solid #f0f0f0;
-}
-
-/* Ações do formulário */
-.acoes {
-  display: flex;
-  justify-content: flex-end;
-  gap: 10px;
-  margin-top: 12px;
-}
-
-.acoes input[type=submit] {
-  background: #000;
-  color: #fff;
-  border: none;
-  padding: 10px 16px;
-  border-radius: 10px;
-}
-
-.acoes input[type=reset] {
-  background: #ebebeb;
-  border: none;
-  padding: 10px 16px;
-  border-radius: 10px;
-}
-
-/* Sidebar (se usada no index) */
-.cartao-lateral {
-  border: 1px solid #e1e1e1;
-  position: sticky;
-  top: 16px;
-}
-
-.lateral {
-  flex: 1 1 auto;
-  overflow: auto;
-  min-height: 0;
-}
-
-.lateral img {
-  width: 100%;
-  border-radius: 20px;
-}
-
-.lateral>* {
-  display: block;
-  padding: 10px;
-}
-
-.lateral .titulo {
-  font-weight: 700;
-}
-
-.lateral .descricao {
-  color: #7e7e7e;
-}
-
-.quantidade {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-}
-
-.quantidade .controles {
-  display: flex;
-  align-items: center;
-}
-
-.quantidade .controles button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+/* ===== Base: html e body ===== */
+html,
+body {
+  height: 100%;
   margin: 0 5px;
-  width: 28px;
-  height: 28px;
+  padding: 0;
+  background: #fff;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+/* ===== Card genérico (Bootstrap helpers usados no layout) ===== */
+.card {
   border: none;
-  background: #eee;
-  border-radius: 7px;
 }
 
-.quantidade .controles input {
-  width: 60px;
-  text-align: center;
-  border: 1px solid #e1e1e1;
-  border-radius: 7px;
-}
-
-.linha-total {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.linha-total span {
-  font-weight: 700;
-}
-
-/* Ajuda: none -> aparece no hover (requisito display:none) */
-.badge-ajuda {
-  display: inline-block;
-  padding: 0.25em 0.75em;
-  background: #000;
-  color: #fff;
-  border-radius: 999px;
-}
-
-.dica-oculta {
-  display: none;
-  color: #777;
-  margin-top: 6px;
-}
-
-.badge-ajuda:hover+.dica-oculta {
-  display: block;
-}
-
-/* Botão fixo (position:fixed) */
-.btn-topo {
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
-  z-index: 1000;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  background: #000;
-  color: #fff;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, .15);
-}
-
-.btn-topo:hover {
-  filter: brightness(1.05);
-}
-
-/* Responsivo */
-@media (max-width: 768px) {
-  .campo-busca-wrapper {
-    width: 100%;
-  }
-
-  .cartao-lateral {
-    position: static;
-  }
-}
-
-/* Campo de busca com ícone interno */
-.campo-busca-wrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
-  width: 250px;
-  /* ajuste se quiser maior/menor */
-}
-
-.campo-busca-wrapper .material-icons {
-  position: absolute;
-  left: 10px;
-  color: #777;
-  font-size: 20px;
-  pointer-events: none;
-}
-
-.campo-busca {
-  width: 100%;
-  padding: 8px 12px 8px 38px;
-  /* espaço para o ícone */
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  outline: none;
-  transition: border-color .2s;
-}
-
-.campo-busca:focus {
-  border-color: #000;
-}
-
+/* ===== Cabeçalho: textos, container e busca ===== */
 .cabecalho-texto span {
   display: block;
 }
@@ -307,10 +38,38 @@
   border-bottom: 1px solid #e1e1e1;
 }
 
+/* Campo de busca com ícone interno (wrapper, ícone e input) */
 .campo-busca-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 250px;
   flex: 0 0 50%;
 }
 
+.campo-busca-wrapper .material-icons {
+  position: absolute;
+  left: 10px;
+  color: #777;
+  font-size: 20px;
+  pointer-events: none;
+}
+
+.campo-busca {
+  width: 100%;
+  padding: 8px 12px 8px 38px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color .2s;
+  background: #ebebeb;
+}
+
+.campo-busca:focus {
+  border-color: #000;
+}
+
+/* Botões/ícones do cabeçalho */
 .botao-icone {
   display: flex;
   align-items: center;
@@ -325,6 +84,10 @@
   text-decoration: none;
 }
 
+.botao-icone:hover {
+  color: #000;
+}
+
 .icone-lateral {
   display: flex;
 }
@@ -333,25 +96,73 @@
   font-size: 30px;
 }
 
-.botao-icone:hover {
-  color: #000;
+/* ===== Cartão do formulário e etiqueta ===== */
+.cartao-form {
+  border: 1px solid #e1e1e1;
+  border-radius: 10px;
 }
 
-.card {
+.cartao-form .card-body {
+  padding: 20px;
+}
+
+/* ===== Formulário: blocos e linhas ===== */
+.bloco {
+  margin-bottom: 18px;
+}
+
+.formulario .form-label {
+  font-weight: 600;
+}
+
+.form-linha {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.linha-inline {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.inline {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ===== Tabela de resumo ===== */
+.tabela-resumo thead th {
+  border-bottom: 1px solid #e1e1e1;
+}
+
+.tabela-resumo tbody td {
+  border-top: 1px solid #f0f0f0;
+}
+
+/* ===== Ações do formulário ===== */
+.acoes {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.acoes input[type=submit] {
+  background: #000;
+  color: #fff;
   border: none;
+  padding: 10px 16px;
+  border-radius: 10px;
 }
 
-html,
-body {
-  height: 100%;
-  margin: 0 5px;
-  padding: 0;
-  background: #fff;
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
-    Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji",
-    "Segoe UI Symbol", "Noto Color Emoji";
-}
-
-.campo-busca {
+.acoes input[type=reset] {
   background: #ebebeb;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 10px;
 }

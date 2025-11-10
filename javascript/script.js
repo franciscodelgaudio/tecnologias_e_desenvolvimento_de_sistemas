@@ -1,15 +1,9 @@
-// =======================
-// Arrays + Objetos (Requisito)
-// =======================
+// Carrinho básico com 1 item inicial (id, nome, preço unitário, quantidade)
 const cart = [
   { id: 'coffee-gayo', name: 'Coffee Gayo', price: 21.4, qty: 1 }
 ];
 
-// =======================
-// Funções (3 formatos)
-// =======================
-
-// 1) Function declaration
+/* Soma total do carrinho e atualiza todos os elementos de total na página. */
 function calcularTotal() {
   const total = cart.reduce((s, item) => s + item.price * item.qty, 0);
   const totalEls = document.querySelectorAll('#totalValor, .linha-total span');
@@ -20,15 +14,15 @@ function calcularTotal() {
   return total;
 }
 
-// 2) Function expression
+/* Formata número como moeda simples (USD, com 2 casas) */
 const formatCurrency = function (n) {
   return '$' + (Number(n).toFixed(2));
 };
 
-// 3) Arrow function
+/* Busca um item pelo id dentro do cart. */
 const findItem = id => cart.find(i => i.id === id);
 
-// Auxiliar: atualiza quantidade de um item e reflete na UI
+/* escreve no input (se fornecido) e recalcula total. */
 function setQty(id, qty, inputEl) {
   const item = findItem(id);
   if (!item) return;
@@ -39,14 +33,9 @@ function setQty(id, qty, inputEl) {
   calcularTotal();
 }
 
-// =======================
-// Eventos (Requisito: 2 tipos no mínimo)
-// - click (mouse) nos botões +/-
-// - input (teclado) no <input type="number">
-// - submit (formulário) para enviar pedido
-// =======================
+// Inicializa listeners quando o DOM está pronto
 document.addEventListener('DOMContentLoaded', () => {
-  // Delegação de clique para botões +/- (MOUSE)
+  /* Ajusta a quantidade do item associado (data-item-id da .controles) */
   document.body.addEventListener('click', (e) => {
     const btn = e.target.closest('button[data-action]');
     if (!btn) return;
@@ -62,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setQty(id, atual + delta, input);
   });
 
-  // Alteração via teclado no input numérico (TECLADO)
+  /* Sincroniza o valor digitado manualmente com o cart */
   document.body.addEventListener('input', (e) => {
     if (!e.target.matches('.controles input[type="number"]')) return;
     const input = e.target;
@@ -70,27 +59,23 @@ document.addEventListener('DOMContentLoaded', () => {
     setQty(id, input.value, input);
   });
 
-  // Submit do primeiro formulário da página (FORMULÁRIO)
+  /* Mostra alerta com JSON do carrinho */
   const form = document.querySelector('form');
   if (form) {
     form.addEventListener('submit', (ev) => {
       ev.preventDefault();
-      // Apenas para demonstração: mostra o carrinho (array de objetos)
       alert('Pedido enviado!\n' + JSON.stringify(cart, null, 2));
       form.reset();
-      // após reset, recontabiliza total considerando qty padrão 1
       cart.forEach(i => (i.qty = 1));
       calcularTotal();
     });
   }
 
-  // Inicializa total ao abrir a página
+  // Primeira atualização do total ao carregar a página
   calcularTotal();
 });
 
-// =======================
-// Compat com inline onclick (se você mantiver no HTML antigo)
-// =======================
+/* Recebe o botão clicado e o delta (+1/-1) */
 window.decIncTotal = function (btn, delta) {
   const box = btn.closest('.controles');
   if (!box) return;

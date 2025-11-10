@@ -6,41 +6,50 @@
     <title>Sacola • Coffee Shop</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- Ícones + Bootstrap -->
+    <!-- Dependências visuais: ícones do Google + Bootstrap CSS -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
+    <!-- CSS específico da página de pedidos/sacola -->
     <link rel="stylesheet" href="../css/pedidos.css">
 </head>
 
 <body>
 
+    <!-- HEADER: título + busca + atalho para sacola -->
     <div class="card">
         <div class="card-body cabecalho">
+            <!-- Títulos do cabeçalho -->
             <div class="cabecalho-texto">
                 <span class="titulo">Cesta de Pedidos de Café</span>
                 <span class="subtitulo">Finalize seu pedido</span>
             </div>
 
+            <!-- Campo de busca com ícone (estilos em pedidos.css) -->
             <div class="campo-busca-wrapper">
                 <span class="material-icons">search</span>
                 <input class="campo-busca" type="text" placeholder="Buscar cafés...">
             </div>
 
+            <!-- Atalho visual para a própria sacola (mantido para consistência de layout) -->
             <a href="pedidos.html" class="botao-icone" aria-label="Ir para sacola">
                 <span class="material-icons">shopping_bag</span>
             </a>
         </div>
     </div>
 
+    <!-- CONTAINER CENTRAL: formulário com dados, endereço, detalhes e resumo -->
     <div class="container-sm">
         <div class="card cartao-form">
             <div class="card-body">
+                <!-- Form principal da sacola (POST fictício) -->
                 <form action="#" method="post" class="formulario">
-                    <!-- Dados pessoais -->
+
+                    <!-- BLOCO 1: Dados pessoais -->
                     <fieldset class="bloco">
                         <legend>Dados pessoais</legend>
 
+                        <!-- Nome e E-mail (grid responsivo Bootstrap) -->
                         <div class="row g-3">
                             <div class="col-12 col-md-6">
                                 <label class="form-label">Nome *</label>
@@ -52,9 +61,11 @@
                             </div>
                         </div>
 
+                        <!-- Cidade (com datalist) + Data de retirada -->
                         <div class="row g-3 mt-0">
                             <div class="col-12 col-md-6">
                                 <label class="form-label">Cidade</label>
+                                <!-- Campo com lista de sugestões -->
                                 <input class="form-control" list="cidades" placeholder="Digite ou escolha">
                                 <datalist id="cidades">
                                     <option value="Cascavel">
@@ -69,10 +80,11 @@
                         </div>
                     </fieldset>
 
-                    <!-- Endereço -->
+                    <!-- BLOCO 2: Endereço -->
                     <fieldset class="bloco">
                         <legend>Endereço</legend>
 
+                        <!-- Rua, Número, UF e Complemento -->
                         <div class="row g-3">
                             <div class="col-12 col-md-8">
                                 <label class="form-label">Rua</label>
@@ -99,10 +111,11 @@
                         </div>
                     </fieldset>
 
-                    <!-- Detalhes do pedido -->
+                    <!-- BLOCO 3: Detalhes do pedido (tamanho, adicionais, cupom, arquivo) -->
                     <fieldset class="bloco">
                         <legend>Detalhes do pedido</legend>
 
+                        <!-- Tamanho (radio) + Adicionais (checkbox) -->
                         <div class="form-linha mt-2">
                             <div class="me-4">
                                 <label class="form-label d-block">Tamanho</label>
@@ -129,6 +142,7 @@
                             </div>
                         </div>
 
+                        <!-- Cupom e Comprovante (file) -->
                         <div class="row g-3 mt-1">
                             <div class="col-12 col-md-6">
                                 <label class="form-label">Cupom</label>
@@ -141,7 +155,7 @@
                         </div>
                     </fieldset>
 
-                    <!-- Tabela resumo -->
+                    <!-- BLOCO 4: Tabela de resumo do pedido (leitura rápida) -->
                     <div class="bloco">
                         <legend>Resumo do pedido</legend>
                         <div class="table-responsive">
@@ -166,7 +180,7 @@
                         </div>
                     </div>
 
-                    <!-- Lista para cumprir requisito -->
+                    <!-- BLOCO 5: Lista simples (cumpre requisito de lista no layout) -->
                     <div class="bloco">
                         <legend>Passos para finalizar</legend>
                         <ul class="ps-3">
@@ -176,7 +190,7 @@
                         </ul>
                     </div>
 
-                    <!-- Ações -->
+                    <!-- AÇÕES do formulário (reset/submit) -->
                     <div class="acoes">
                         <input type="reset" value="Limpar">
                         <input type="submit" value="Finalizar Pedido">
@@ -187,12 +201,7 @@
         </div>
     </div>
 
-    <!-- Botão fixo (position:fixed) -->
-    <a class="btn-topo" href="#topo" aria-label="Voltar ao topo">
-        <span class="material-icons">arrow_upward</span>
-    </a>
-
-    <!-- Bootstrap JS (Accordion/Carousel se você reutilizar aqui) -->
+    <!-- Scripts: Bootstrap JS (para componentes como collapse/accordion, se usado) + JS da página -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../javascript/script.js"></script>
 </body>
