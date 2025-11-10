@@ -74,13 +74,3 @@ document.addEventListener('DOMContentLoaded', () => {
   // Primeira atualização do total ao carregar a página
   calcularTotal();
 });
-
-/* Recebe o botão clicado e o delta (+1/-1) */
-window.decIncTotal = function (btn, delta) {
-  const box = btn.closest('.controles');
-  if (!box) return;
-  const input = box.querySelector('input[type="number"]');
-  const id = box.dataset.itemId || 'coffee-gayo';
-  const atual = parseInt(input.value || '1', 10);
-  setQty(id, atual + delta, input);
-};
