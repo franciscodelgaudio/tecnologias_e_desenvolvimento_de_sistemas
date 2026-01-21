@@ -4,6 +4,7 @@ import { Header } from './components/Header'
 import { ProductGrid } from './components/ProductGrid'
 import { CartSidebar } from './components/CartSidebar'
 import { CheckoutForm } from './components/CheckoutForm'
+import { ShowcasePanel } from './components/ShowcasePanel'
 import { useHttp } from './hooks/useHttp'
 
 function calcCartTotal(cart) {
@@ -149,6 +150,8 @@ function App() {
               </div>
             </div>
           </div>
+
+          <ShowcasePanel />
 
           <ProductGrid
             products={filteredProducts}
