@@ -1,0 +1,60 @@
+﻿{
+  "updatedAt": "2026-01-20",
+  "currency": "BRL",
+  "products": [
+    {
+      "id": "coffee-gayo",
+      "name": "Coffee Gayo",
+      "description": "Gr\u00e3os selecionados, corpo m\u00e9dio e finaliza\u00e7\u00e3o doce.",
+      "price": 21.4,
+      "image": "https://blog.lojasrenner.com.br/wp-content/uploads/2023/07/receitas-de-cafe-interno_2x.png",
+      "tags": ["gr\u00e3os", "equilibrado"],
+      "featured": true
+    },
+    {
+      "id": "latte",
+      "name": "Latte",
+      "description": "Leite cremoso com espresso suave.",
+      "price": 19.9,
+      "image": "https://static.dw.com/image/18209219_1004.webp",
+      "tags": ["leite", "suave"],
+      "featured": true
+    },
+    {
+      "id": "espresso",
+      "name": "Espresso",
+      "description": "Cl\u00e1ssico e intenso, extra\u00e7\u00e3o curta.",
+      "price": 12.0,
+      "image": "https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=1200&q=60",
+      "tags": ["cl\u00e1ssico", "intenso"],
+      "featured": false
+    },
+    {
+      "id": "cappuccino",
+      "name": "Cappuccino",
+      "description": "Espuma, cacau e aroma marcante.",
+      "price": 22.5,
+      "image": "https://images.unsplash.com/photo-1517256064527-09c73fc73e38?auto=format&fit=crop&w=1200&q=60",
+      "tags": ["espuma", "cacau"],
+      "featured": false
+    },
+    {
+      "id": "mocha",
+      "name": "Mocha",
+      "description": "Chocolate + espresso para dias frios.",
+      "price": 24.0,
+      "image": "https://images.unsplash.com/photo-1512568400610-62da28bc8a13?auto=format&fit=crop&w=1200&q=60",
+      "tags": ["chocolate", "doce"],
+      "featured": false
+    },
+    {
+      "id": "cold-brew",
+      "name": "Cold Brew",
+      "description": "Extra\u00e7\u00e3o a frio, refrescante e leve.",
+      "price": 18.5,
+      "image": "https://images.unsplash.com/photo-1498804103079-a6351b050096?auto=format&fit=crop&w=1200&q=60",
+      "tags": ["gelado", "refrescante"],
+      "featured": false
+    }
+  ]
+}

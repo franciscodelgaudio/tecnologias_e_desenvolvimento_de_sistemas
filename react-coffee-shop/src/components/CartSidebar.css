@@ -1,0 +1,121 @@
+.sidebar {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.03);
+  position: sticky;
+  top: 16px;
+  align-self: start;
+}
+
+.sidebarHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.sidebarTitle {
+  margin: 0;
+  font-size: 16px;
+}
+
+.sidebarMeta {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.empty {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.cartList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.cartItem {
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 12px;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.20);
+}
+
+.cartLine {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.cartName {
+  font-weight: 700;
+}
+
+.cartSub {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.70);
+  margin-top: 2px;
+}
+
+.removeBtn {
+  appearance: none;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: rgba(255, 255, 255, 0.85);
+  border-radius: 10px;
+  padding: 6px 8px;
+  cursor: pointer;
+}
+
+.removeBtn:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.qtyRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.qtyBtn {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.10);
+  color: white;
+  cursor: pointer;
+}
+
+.qtyInput {
+  width: 60px;
+  padding: 8px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.25);
+  color: white;
+}
+
+.totalRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.totalValue {
+  font-weight: 800;
+}
+
+.highlight {
+  color: #ffd28a;
+}
