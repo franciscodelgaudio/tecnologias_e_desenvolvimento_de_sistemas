@@ -127,79 +127,77 @@ export function ShowcasePanel() {
         </div>
       </div>
 
-      <div className="accordion mt-4" id="tipsAccordion">
-        <div className="accordion-item">
-          <h2 className="accordion-header" id="tipHeadingOne">
-            <button
-              className="accordion-button"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#tipCollapseOne"
-              aria-expanded="true"
-              aria-controls="tipCollapseOne"
+      {showTips ? (
+        <div className="accordion mt-4" id="tipsAccordion">
+          <div className="accordion-item">
+            <h2 className="accordion-header" id="tipHeadingOne">
+              <button
+                className="accordion-button"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#tipCollapseOne"
+                aria-expanded="true"
+                aria-controls="tipCollapseOne"
+              >
+                Dicas de extração
+              </button>
+            </h2>
+            <div
+              id="tipCollapseOne"
+              className="accordion-collapse collapse show"
+              aria-labelledby="tipHeadingOne"
+              data-bs-parent="#tipsAccordion"
             >
-              Dicas de extração
-            </button>
-          </h2>
-          <div
-            id="tipCollapseOne"
-            className="accordion-collapse collapse show"
-            aria-labelledby="tipHeadingOne"
-            data-bs-parent="#tipsAccordion"
-          >
-            <div className="accordion-body">
-              {showTips ? (
+              <div className="accordion-body">
                 <p>
                   Ajuste a moagem, acompanhe o peso e observe a crema para manter o padrão.
                 </p>
-              ) : (
-                <p>Ative as dicas para ver recomendações do barista.</p>
-              )}
-            </div>
-          </div>
-        </div>
-
-        <div className="accordion-item">
-          <h2 className="accordion-header" id="tipHeadingTwo">
-            <button
-              className="accordion-button collapsed"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#tipCollapseTwo"
-              aria-expanded="false"
-              aria-controls="tipCollapseTwo"
-            >
-              Avaliação rápida
-            </button>
-          </h2>
-          <div
-            id="tipCollapseTwo"
-            className="accordion-collapse collapse"
-            aria-labelledby="tipHeadingTwo"
-            data-bs-parent="#tipsAccordion"
-          >
-            <div className="accordion-body">
-              <div className="ratingRow">
-                <span className="me-2">Nota:</span>
-                <input
-                  type="range"
-                  min="1"
-                  max="5"
-                  value={rating}
-                  className="form-range"
-                  onChange={(e) => setRating(Number(e.target.value))}
-                  onFocus={() => setFocusState(true)}
-                  onBlur={() => setFocusState(false)}
-                />
-                <span className={focusState ? 'ratingValue focus' : 'ratingValue'}>
-                  {rating}
-                </span>
               </div>
-              <p className="mt-2">Use o controle para registrar seu feedback.</p>
+            </div>
+          </div>
+
+          <div className="accordion-item">
+            <h2 className="accordion-header" id="tipHeadingTwo">
+              <button
+                className="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#tipCollapseTwo"
+                aria-expanded="false"
+                aria-controls="tipCollapseTwo"
+              >
+                Avaliação rápida
+              </button>
+            </h2>
+            <div
+              id="tipCollapseTwo"
+              className="accordion-collapse collapse"
+              aria-labelledby="tipHeadingTwo"
+              data-bs-parent="#tipsAccordion"
+            >
+              <div className="accordion-body">
+                <div className="ratingRow">
+                  <span className="me-2">Nota:</span>
+                  <input
+                    type="range"
+                    min="1"
+                    max="5"
+                    value={rating}
+                    className="form-range"
+                    onChange={(e) => setRating(Number(e.target.value))}
+                    onFocus={() => setFocusState(true)}
+                    onBlur={() => setFocusState(false)}
+                  />
+                  <span className={focusState ? 'ratingValue focus' : 'ratingValue'}>
+                    {rating}
+                  </span>
+                </div>
+                <p className="mt-2">Use o controle para registrar seu feedback.</p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      ) : null}
 
       <div id="coffeeCarousel" className="carousel slide mt-4" data-bs-ride="carousel">
         <div className="carousel-indicators">
