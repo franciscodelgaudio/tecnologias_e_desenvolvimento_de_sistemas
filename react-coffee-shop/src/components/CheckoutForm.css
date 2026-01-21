@@ -34,7 +34,7 @@
   color: rgba(255, 255, 255, 0.85);
 }
 
-.row {
+.formRow {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 12px;
@@ -125,7 +125,7 @@ textarea {
 }
 
 @media (max-width: 900px) {
-  .row {
+  .formRow {
     grid-template-columns: 1fr;
   }
 }
