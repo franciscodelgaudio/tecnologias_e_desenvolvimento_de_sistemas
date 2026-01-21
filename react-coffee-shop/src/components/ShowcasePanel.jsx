@@ -45,7 +45,7 @@ export function ShowcasePanel() {
 
       <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3">
         <div className="col">
-          <div className="card h-100 shadow-sm promoCard text-bg-dark border-secondary">
+          <div className="card h-100 shadow-sm promoCard">
             <div className="promoPin">Novo</div>
             <img src={beansIcon} className="card-img-top promoImage" alt="Grãos" />
             <div className="card-body">
@@ -70,13 +70,13 @@ export function ShowcasePanel() {
         </div>
 
         <div className="col">
-          <div className="card h-100 text-bg-dark border-secondary">
+          <div className="card h-100">
             <div className="card-body">
               <h5 className="card-title">Checklist de preparo</h5>
               <p className="card-text">Passos essenciais para um espresso equilibrado.</p>
-              <ul className="list-group list-group-flush list-group-dark">
+              <ul className="list-group list-group-flush">
                 {stepsList.map((step) => (
-                  <li key={step} className="list-group-item list-group-item-dark">
+                  <li key={step} className="list-group-item">
                     {step}
                   </li>
                 ))}
@@ -91,7 +91,7 @@ export function ShowcasePanel() {
         </div>
 
         <div className="col">
-          <div className="card h-100 text-bg-dark border-secondary">
+          <div className="card h-100">
             <div className="card-body">
               <h5 className="card-title">Tabela de torra</h5>
               <p className="card-text">Comparativo rápido de perfis.</p>
@@ -127,77 +127,79 @@ export function ShowcasePanel() {
         </div>
       </div>
 
-      {showTips ? (
-        <div className="accordion mt-4 showcaseAccordion" id="tipsAccordion">
-          <div className="accordion-item">
-            <h2 className="accordion-header" id="tipHeadingOne">
-              <button
-                className="accordion-button"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#tipCollapseOne"
-                aria-expanded="true"
-                aria-controls="tipCollapseOne"
-              >
-                Dicas de extração
-              </button>
-            </h2>
-            <div
-              id="tipCollapseOne"
-              className="accordion-collapse collapse show"
-              aria-labelledby="tipHeadingOne"
-              data-bs-parent="#tipsAccordion"
+      <div className="accordion mt-4" id="tipsAccordion">
+        <div className="accordion-item">
+          <h2 className="accordion-header" id="tipHeadingOne">
+            <button
+              className="accordion-button"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#tipCollapseOne"
+              aria-expanded="true"
+              aria-controls="tipCollapseOne"
             >
-              <div className="accordion-body">
+              Dicas de extração
+            </button>
+          </h2>
+          <div
+            id="tipCollapseOne"
+            className="accordion-collapse collapse show"
+            aria-labelledby="tipHeadingOne"
+            data-bs-parent="#tipsAccordion"
+          >
+            <div className="accordion-body">
+              {showTips ? (
                 <p>
                   Ajuste a moagem, acompanhe o peso e observe a crema para manter o padrão.
                 </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="accordion-item">
-            <h2 className="accordion-header" id="tipHeadingTwo">
-              <button
-                className="accordion-button collapsed"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#tipCollapseTwo"
-                aria-expanded="false"
-                aria-controls="tipCollapseTwo"
-              >
-                Avaliação rápida
-              </button>
-            </h2>
-            <div
-              id="tipCollapseTwo"
-              className="accordion-collapse collapse"
-              aria-labelledby="tipHeadingTwo"
-              data-bs-parent="#tipsAccordion"
-            >
-              <div className="accordion-body">
-                <div className="ratingRow">
-                  <span className="me-2">Nota:</span>
-                  <input
-                    type="range"
-                    min="1"
-                    max="5"
-                    value={rating}
-                    className="form-range"
-                    onChange={(e) => setRating(Number(e.target.value))}
-                    onFocus={() => setFocusState(true)}
-                    onBlur={() => setFocusState(false)}
-                  />
-                  <span className={focusState ? 'ratingValue focus' : 'ratingValue'}>
-                    {rating}
-                  </span>
-                </div>
-                <p className="mt-2">Use o controle para registrar seu feedback.</p>
-              </div>
+              ) : (
+                <p>Ative as dicas para ver recomendações do barista.</p>
+              )}
             </div>
           </div>
         </div>
-      ) : null}
+
+        <div className="accordion-item">
+          <h2 className="accordion-header" id="tipHeadingTwo">
+            <button
+              className="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#tipCollapseTwo"
+              aria-expanded="false"
+              aria-controls="tipCollapseTwo"
+            >
+              Avaliação rápida
+            </button>
+          </h2>
+          <div
+            id="tipCollapseTwo"
+            className="accordion-collapse collapse"
+            aria-labelledby="tipHeadingTwo"
+            data-bs-parent="#tipsAccordion"
+          >
+            <div className="accordion-body">
+              <div className="ratingRow">
+                <span className="me-2">Nota:</span>
+                <input
+                  type="range"
+                  min="1"
+                  max="5"
+                  value={rating}
+                  className="form-range"
+                  onChange={(e) => setRating(Number(e.target.value))}
+                  onFocus={() => setFocusState(true)}
+                  onBlur={() => setFocusState(false)}
+                />
+                <span className={focusState ? 'ratingValue focus' : 'ratingValue'}>
+                  {rating}
+                </span>
+              </div>
+              <p className="mt-2">Use o controle para registrar seu feedback.</p>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <div id="coffeeCarousel" className="carousel slide mt-4" data-bs-ride="carousel">
         <div className="carousel-indicators">
