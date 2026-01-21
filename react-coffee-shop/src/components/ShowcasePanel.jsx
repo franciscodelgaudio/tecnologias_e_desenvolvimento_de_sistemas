@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import beansIcon from '../assets/coffee-beans.svg'
+import beansIcon from '/coffee-beans.svg'
 import './ShowcasePanel.css'
 
 const roastInfo = {

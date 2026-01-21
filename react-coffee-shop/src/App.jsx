@@ -13,9 +13,8 @@ function calcCartTotal(cart) {
 
 function App() {
   const shopName = 'Coffee Shop'
-  const shopInfo = { city: 'Cascavel', updatedAt: '2026-01-20' }
+  const shopInfo = { city: 'Foz do Iguaçu' }
 
-  const [viewportWidth, setViewportWidth] = useState(window.innerWidth)
   const [searchTerm, setSearchTerm] = useState('')
   const [products, setProducts] = useState([])
   const [selectedProductId, setSelectedProductId] = useState(null)
@@ -26,30 +25,21 @@ function App() {
   const { loadingGet, error, clearError, get, post } = useHttp()
 
   useEffect(() => {
-    function onResize() {
-      setViewportWidth(window.innerWidth)
-    }
-
-    window.addEventListener('resize', onResize)
-    return () => window.removeEventListener('resize', onResize)
-  }, [])
-
-  useEffect(() => {
     let active = true
 
-    ;(async () => {
-      try {
-        const data = await get('/api/products.json')
-        if (!active) return
-        const list = Array.isArray(data?.products) ? data.products : []
-        setProducts(list)
-        if (list.length) {
-          setSelectedProductId((prev) => prev ?? list[0].id)
+      ; (async () => {
+        try {
+          const data = await get('/api/products.json')
+          if (!active) return
+          const list = Array.isArray(data?.products) ? data.products : []
+          setProducts(list)
+          if (list.length) {
+            setSelectedProductId((prev) => prev ?? list[0].id)
+          }
+        } catch {
+
         }
-      } catch {
-        // error state is handled by the hook
-      }
-    })()
+      })()
 
     return () => {
       active = false
@@ -103,11 +93,9 @@ function App() {
     <div className="app">
       <Header
         title={`${shopName} - ${shopInfo.city}`}
-        subtitle={`Atualizado em ${shopInfo.updatedAt}`}
         searchTerm={searchTerm}
         onSearchTermChange={setSearchTerm}
         cartCount={cartCount}
-        viewportWidth={viewportWidth}
       />
 
       {error ? (

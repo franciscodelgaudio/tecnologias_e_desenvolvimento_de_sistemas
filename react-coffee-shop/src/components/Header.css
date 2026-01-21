@@ -1,19 +1,20 @@
 .header {
   display: grid;
-  grid-template-columns: 1fr 1fr auto;
-  gap: 16px;
+  grid-template-columns: 1fr minmax(320px, 560px) 1fr;
   align-items: center;
-  padding: 16px;
+  padding: 16px 24px;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 16px;
   background: rgba(255, 255, 255, 0.03);
+  gap: 16px;
 }
+
 
 .brand {
   display: flex;
   align-items: center;
   gap: 12px;
-  min-width: 0;
+  justify-self: start;
 }
 
 .brandLogo {
@@ -37,8 +38,10 @@
 }
 
 .searchWrap {
-  display: grid;
-  gap: 6px;
+  width: 100%;
+}
+.searchInput {
+  width: 100%;
 }
 
 .searchLabel {
@@ -46,25 +49,12 @@
   color: rgba(255, 255, 255, 0.7);
 }
 
-.searchInput {
-  width: 100%;
-  padding: 10px 12px;
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(0, 0, 0, 0.25);
-  color: white;
-  outline: none;
-}
-
 .searchInput:focus {
   border-color: rgba(255, 255, 255, 0.3);
 }
 
 .cartBadge {
-  padding: 10px 12px;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(0, 0, 0, 0.25);
+  justify-self: end;
 }
 
 @media (max-width: 900px) {

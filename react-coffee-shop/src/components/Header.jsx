@@ -1,17 +1,13 @@
-﻿import coffeeBeans from '../assets/coffee-beans.svg'
+﻿import coffeeBeans from '/coffee-beans.svg'
 import './Header.css'
 
-export function Header({ title, subtitle, searchTerm, onSearchTermChange, cartCount, viewportWidth }) {
+export function Header({ title, searchTerm, onSearchTermChange, cartCount, viewportWidth }) {
   return (
     <header className="header">
       <div className="brand">
         <img className="brandLogo" src={coffeeBeans} alt="Coffee beans" />
         <div className="brandText">
           <h1 className="brandTitle">{title}</h1>
-          <p className="brandSubtitle">
-            {subtitle}{' '}
-            <span className="muted">({viewportWidth}px)</span>
-          </p>
         </div>
       </div>
 
@@ -20,7 +16,7 @@ export function Header({ title, subtitle, searchTerm, onSearchTermChange, cartCo
           id="search"
           className="searchInput"
           type="text"
-          placeholder="Buscar caf\u00e9s..."
+          placeholder="Buscar cafés..."
           value={searchTerm}
           onChange={(e) => onSearchTermChange(e.target.value)}
           onKeyDown={(e) => {
