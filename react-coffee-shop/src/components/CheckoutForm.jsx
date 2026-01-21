@@ -93,6 +93,7 @@ export function CheckoutForm({ cart, total, onOrderSent, post }) {
             <label>
               Nome (text)
               <input
+                className="form-control"
                 type="text"
                 required
                 value={form.name}
@@ -102,6 +103,7 @@ export function CheckoutForm({ cart, total, onOrderSent, post }) {
             <label>
               E-mail (email)
               <input
+                className="form-control"
                 type="email"
                 required
                 value={form.email}
@@ -114,6 +116,7 @@ export function CheckoutForm({ cart, total, onOrderSent, post }) {
             <label>
               Senha (password)
               <input
+                className="form-control"
                 type="password"
                 required
                 value={form.password}
@@ -124,6 +127,7 @@ export function CheckoutForm({ cart, total, onOrderSent, post }) {
             <label>
               Cidade (datalist)
               <input
+                className="form-control"
                 list="cities"
                 value={form.city}
                 onChange={(e) => updateField('city', e.target.value)}
@@ -140,6 +144,7 @@ export function CheckoutForm({ cart, total, onOrderSent, post }) {
             <label>
               Data de retirada
               <input
+                className="form-control"
                 type="date"
                 required
                 value={form.pickupDate}
@@ -150,6 +155,7 @@ export function CheckoutForm({ cart, total, onOrderSent, post }) {
             <label>
               Quantidade (number)
               <input
+                className="form-control"
                 type="number"
                 min={1}
                 max={99}
@@ -166,63 +172,69 @@ export function CheckoutForm({ cart, total, onOrderSent, post }) {
           <div className="row">
             <div className="group">
               <div className="groupTitle">Tamanho (radio)</div>
-              <label className="inline">
+              <label className="inline form-check">
                 <input
+                  className="form-check-input"
                   type="radio"
                   name="size"
                   value="P"
                   checked={form.size === 'P'}
                   onChange={() => updateField('size', 'P')}
                 />
-                Pequeno
+                <span className="form-check-label">Pequeno</span>
               </label>
-              <label className="inline">
+              <label className="inline form-check">
                 <input
+                  className="form-check-input"
                   type="radio"
                   name="size"
                   value="M"
                   checked={form.size === 'M'}
                   onChange={() => updateField('size', 'M')}
                 />
-                {'M\u00e9dio'}
+                <span className="form-check-label">{'M\u00e9dio'}</span>
               </label>
-              <label className="inline">
+              <label className="inline form-check">
                 <input
+                  className="form-check-input"
                   type="radio"
                   name="size"
                   value="G"
                   checked={form.size === 'G'}
                   onChange={() => updateField('size', 'G')}
                 />
-                Grande
+                <span className="form-check-label">Grande</span>
               </label>
             </div>
 
             <div className="group">
               <div className="groupTitle">Adicionais (checkbox)</div>
-              <label className="inline">
+              <label className="inline form-check">
                 <input
+                  className="form-check-input"
                   type="checkbox"
                   checked={form.extras.cinnamon}
                   onChange={(e) => updateExtra('cinnamon', e.target.checked)}
                 />
-                Canela
+                <span className="form-check-label">Canela</span>
               </label>
-              <label className="inline">
+              <label className="inline form-check">
                 <input
+                  className="form-check-input"
                   type="checkbox"
                   checked={form.extras.chocolate}
                   onChange={(e) => updateExtra('chocolate', e.target.checked)}
                 />
-                Chocolate
+                <span className="form-check-label">Chocolate</span>
               </label>
-              <label className="inline">
+              <label className="inline form-check">
                 <input
+                  className="form-check-input"
                   type="checkbox"
                   checked={form.extras.chantilly}
                   onChange={(e) => updateExtra('chantilly', e.target.checked)}
                 />
-                Chantilly
+                <span className="form-check-label">Chantilly</span>
               </label>
             </div>
           </div>
@@ -230,7 +242,11 @@ export function CheckoutForm({ cart, total, onOrderSent, post }) {
           <div className="row">
             <label>
               UF (select)
-              <select value={form.uf} onChange={(e) => updateField('uf', e.target.value)}>
+              <select
+                className="form-select"
+                value={form.uf}
+                onChange={(e) => updateField('uf', e.target.value)}
+              >
                 <option value="PR">PR</option>
                 <option value="SP">SP</option>
                 <option value="RJ">RJ</option>
@@ -241,6 +257,7 @@ export function CheckoutForm({ cart, total, onOrderSent, post }) {
             <label>
               Cupom (text)
               <input
+                className="form-control"
                 type="text"
                 placeholder="EX: CAFE10"
                 value={form.coupon}
@@ -253,6 +270,7 @@ export function CheckoutForm({ cart, total, onOrderSent, post }) {
             <label className="full">
               {'Observa\u00e7\u00f5es (textarea)'}
               <textarea
+                className="form-control"
                 rows={3}
                 value={form.notes}
                 onChange={(e) => updateField('notes', e.target.value)}
@@ -264,6 +282,7 @@ export function CheckoutForm({ cart, total, onOrderSent, post }) {
             <label className="full">
               Comprovante (file)
               <input
+                className="form-control"
                 type="file"
                 accept=".jpg,.png,.pdf"
                 onChange={(e) =>
@@ -278,21 +297,22 @@ export function CheckoutForm({ cart, total, onOrderSent, post }) {
         </fieldset>
 
         <div className="row">
-          <label className="inline">
+          <label className="inline form-check">
             <input
+              className="form-check-input"
               type="checkbox"
               checked={form.agree}
               onChange={(e) => updateField('agree', e.target.checked)}
             />
-            Confirmo que revisei meu pedido
+            <span className="form-check-label">Confirmo que revisei meu pedido</span>
           </label>
         </div>
 
         <div className="actions">
-          <button type="button" onClick={() => setForm(initialForm)}>
+          <button type="button" className="btn btn-outline-light" onClick={() => setForm(initialForm)}>
             Limpar
           </button>
-          <button type="submit" disabled={!canSubmit}>
+          <button type="submit" className="btn btn-primary" disabled={!canSubmit}>
             {sending ? 'Enviando...' : 'Enviar pedido (POST)'}
           </button>
         </div>
