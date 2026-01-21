@@ -89,7 +89,7 @@ export function CheckoutForm({ cart, total, onOrderSent, post }) {
       <form className="form" onSubmit={handleSubmit}>
         <fieldset className="block">
           <legend>Dados pessoais</legend>
-          <div className="row">
+          <div className="formRow">
             <label>
               Nome (text)
               <input
@@ -112,7 +112,7 @@ export function CheckoutForm({ cart, total, onOrderSent, post }) {
             </label>
           </div>
 
-          <div className="row">
+          <div className="formRow">
             <label>
               Senha (password)
               <input
@@ -140,7 +140,7 @@ export function CheckoutForm({ cart, total, onOrderSent, post }) {
             </label>
           </div>
 
-          <div className="row">
+          <div className="formRow">
             <label>
               Data de retirada
               <input
@@ -169,7 +169,7 @@ export function CheckoutForm({ cart, total, onOrderSent, post }) {
         <fieldset className="block">
           <legend>{'Prefer\u00eancias'}</legend>
 
-          <div className="row">
+          <div className="formRow">
             <div className="group">
               <div className="groupTitle">Tamanho (radio)</div>
               <label className="inline form-check">
@@ -239,7 +239,7 @@ export function CheckoutForm({ cart, total, onOrderSent, post }) {
             </div>
           </div>
 
-          <div className="row">
+          <div className="formRow">
             <label>
               UF (select)
               <select
@@ -266,7 +266,7 @@ export function CheckoutForm({ cart, total, onOrderSent, post }) {
             </label>
           </div>
 
-          <div className="row">
+          <div className="formRow">
             <label className="full">
               {'Observa\u00e7\u00f5es (textarea)'}
               <textarea
@@ -278,7 +278,7 @@ export function CheckoutForm({ cart, total, onOrderSent, post }) {
             </label>
           </div>
 
-          <div className="row">
+          <div className="formRow">
             <label className="full">
               Comprovante (file)
               <input
