@@ -23,6 +23,42 @@
   color: rgba(255, 255, 255, 0.7);
 }
 
+.showcase .card {
+  background: rgba(14, 14, 16, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.showcase .text-body-secondary {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.showcase .list-group-item {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.82);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.showcase .accordion-item {
+  background: rgba(14, 14, 16, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.showcase .accordion-button {
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.showcase .accordion-button:not(.collapsed) {
+  background: rgba(255, 210, 138, 0.16);
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.showcase .accordion-button::after {
+  filter: invert(1);
+}
+
 .promoCard {
   position: relative;
   overflow: hidden;
