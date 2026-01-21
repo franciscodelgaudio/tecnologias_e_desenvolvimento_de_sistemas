@@ -296,7 +296,7 @@ export function CheckoutForm({ cart, total, onOrderSent, post }) {
           </div>
         </fieldset>
 
-        <div className="formRow">
+        <div className="row">
           <label className="inline form-check">
             <input
               className="form-check-input"

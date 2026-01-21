@@ -16,9 +16,6 @@ export function Header({ title, subtitle, searchTerm, onSearchTermChange, cartCo
       </div>
 
       <div className="searchWrap">
-        <label className="searchLabel" htmlFor="search">
-          Buscar
-        </label>
         <input
           id="search"
           className="searchInput"
