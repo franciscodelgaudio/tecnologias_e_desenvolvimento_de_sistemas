@@ -6,7 +6,7 @@ const initialForm = {
   name: '',
   email: '',
   password: '',
-  city: 'Cascavel',
+  city: 'Foz do Iguaçu',
   pickupDate: '',
   uf: 'PR',
   notes: '',
@@ -192,7 +192,7 @@ export function CheckoutForm({ cart, total, onOrderSent, post }) {
                   checked={form.size === 'M'}
                   onChange={() => updateField('size', 'M')}
                 />
-                <span className="form-check-label">{'M\u00e9dio'}</span>
+                <span className="form-check-label">Médio</span>
               </label>
               <label className="inline form-check">
                 <input
@@ -268,7 +268,7 @@ export function CheckoutForm({ cart, total, onOrderSent, post }) {
 
           <div className="formRow">
             <label className="full">
-              {'Observa\u00e7\u00f5es (textarea)'}
+              {'Observações (textarea)'}
               <textarea
                 className="form-control"
                 rows={3}

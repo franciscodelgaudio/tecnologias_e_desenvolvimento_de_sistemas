@@ -25,25 +25,18 @@ function App() {
   const { loadingGet, error, clearError, get, post } = useHttp()
 
   useEffect(() => {
-    let active = true
-
-      ; (async () => {
-        try {
-          const data = await get('/api/products.json')
-          if (!active) return
-          const list = Array.isArray(data?.products) ? data.products : []
-          setProducts(list)
-          if (list.length) {
-            setSelectedProductId((prev) => prev ?? list[0].id)
-          }
-        } catch {
-
+    (async () => {
+      try {
+        const data = await get('/api/products.json')
+        const list = Array.isArray(data?.products) ? data.products : []
+        setProducts(list)
+        if (list.length) {
+          setSelectedProductId((prev) => prev ?? list[0].id)
         }
-      })()
+      } catch {
 
-    return () => {
-      active = false
-    }
+      }
+    })()
   }, [get])
 
   const filteredProducts = useMemo(() => {
@@ -54,7 +47,7 @@ function App() {
       const hay = `${p.name} ${p.description} ${(p.tags || []).join(' ')}`.toLowerCase()
       return hay.includes(term)
     })
-  }, [products, searchTerm])
+  }, [products, searchTerm]);
 
   const cartCount = useMemo(
     () => cart.reduce((sum, item) => sum + item.qty, 0),
@@ -111,7 +104,7 @@ function App() {
 
       {lastOrder ? (
         <div className="banner ok">
-          {'\u00daltimo pedido: '}
+          {'Último pedido: '}
           <strong>{lastOrder.customer.name}</strong> -{' '}
           {lastOrder.order.cart.length} item(ns)
         </div>
@@ -127,11 +120,11 @@ function App() {
                   cartCount > 0 ? 'rgba(255, 210, 138, 0.35)' : undefined,
               }}
             >
-              <div className="heroTitle">{'Vamos comprar caf\u00e9'}</div>
+              <div className="heroTitle">{'Vamos comprar café'}</div>
               <div className="heroDesc">
                 {loadingGet
-                  ? 'Carregando menu (GET)...'
-                  : 'Procure seus favoritos e adicione \u00e0 sacola.'}
+                  ? 'Carregando menu...'
+                  : 'Procure seus favoritos e adicione à sacola.'}
               </div>
               <div className="heroMeta">
                 Dica: aperte <kbd>Esc</kbd> para limpar a busca.
