@@ -9,6 +9,7 @@ export function CartSidebar({ cart, onChangeQty, onRemoveItem, total }) {
         <span className="sidebarMeta">{cart.length} item(ns)</span>
       </div>
 
+      {/* Estado vazio e lista de itens do carrinho. */}
       {cart.length === 0 ? (
         <p className="empty">{'Seu carrinho est\u00e1 vazio. Clique em "Adicionar".'}</p>
       ) : (
@@ -48,6 +49,7 @@ export function CartSidebar({ cart, onChangeQty, onRemoveItem, total }) {
                   max={99}
                   value={item.qty}
                   onChange={(e) =>
+                    // Garante que a quantidade fique dentro do limite.
                     onChangeQty(item.productId, clampInt(e.target.value, 1, 99))
                   }
                 />

@@ -1,3 +1,4 @@
+// Formata valores monetarios para BRL.
 export function formatMoneyBRL(value) {
   const safe = Number(value || 0)
   return new Intl.NumberFormat('pt-BR', {
@@ -6,6 +7,7 @@ export function formatMoneyBRL(value) {
   }).format(safe)
 }
 
+// Limita inteiros em um intervalo.
 export function clampInt(value, min, max) {
   const n = Number.parseInt(value, 10)
   const safe = Number.isFinite(n) ? n : min

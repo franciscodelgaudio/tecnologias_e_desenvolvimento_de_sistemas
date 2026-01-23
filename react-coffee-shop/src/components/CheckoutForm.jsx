@@ -2,6 +2,7 @@
 import { formatMoneyBRL, clampInt } from '../utils/format'
 import './CheckoutForm.css'
 
+// Estado inicial do formulario de checkout.
 const initialForm = {
   name: '',
   email: '',
@@ -23,16 +24,20 @@ export function CheckoutForm({ cart, total, onOrderSent, post }) {
   const [sending, setSending] = useState(false)
   const [result, setResult] = useState(null)
 
+  // Resume itens do carrinho para envio ao backend.
   const cartSummary = useMemo(() => {
     return cart.map((i) => ({ id: i.productId, name: i.name, qty: i.qty }))
   }, [cart])
 
+  // So permite enviar quando houver itens e aceite de revisao.
   const canSubmit = cart.length > 0 && form.agree && !sending
 
+  // Atualiza campo simples do formulario.
   function updateField(key, value) {
     setForm((prev) => ({ ...prev, [key]: value }))
   }
 
+  // Atualiza campos de adicionais (checkbox).
   function updateExtra(key, checked) {
     setForm((prev) => ({ ...prev, extras: { ...prev.extras, [key]: checked } }))
   }
@@ -45,6 +50,7 @@ export function CheckoutForm({ cart, total, onOrderSent, post }) {
     setSending(true)
     setResult(null)
 
+    // Monta payload com dados do cliente e do pedido.
     const payload = {
       createdAt: new Date().toISOString(),
       customer: {

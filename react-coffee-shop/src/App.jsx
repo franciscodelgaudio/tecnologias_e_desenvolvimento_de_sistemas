@@ -7,6 +7,7 @@ import { CheckoutForm } from './components/CheckoutForm'
 import { ShowcasePanel } from './components/ShowcasePanel'
 import { useHttp } from './hooks/useHttp'
 
+// Soma o total do carrinho a partir de quantidade e preco.
 function calcCartTotal(cart) {
   return cart.reduce((sum, item) => sum + item.price * item.qty, 0)
 }
@@ -24,6 +25,7 @@ function App() {
 
   const { loadingGet, error, clearError, get, post } = useHttp()
 
+  // Carrega o catalogo na primeira renderizacao.
   useEffect(() => {
     (async () => {
       try {
@@ -39,6 +41,7 @@ function App() {
     })()
   }, [get])
 
+  // Filtra produtos pelo termo de busca (nome, descricao e tags).
   const filteredProducts = useMemo(() => {
     const term = searchTerm.trim().toLowerCase()
     if (!term) return products
@@ -49,13 +52,16 @@ function App() {
     })
   }, [products, searchTerm]);
 
+  // Contador total de itens exibido no header.
   const cartCount = useMemo(
     () => cart.reduce((sum, item) => sum + item.qty, 0),
     [cart],
   )
 
+  // Total do carrinho para resumo e checkout.
   const total = useMemo(() => calcCartTotal(cart), [cart])
 
+  // Adiciona ou incrementa item no carrinho.
   function addToCart(product) {
     setCart((prev) => {
       const existing = prev.find((i) => i.productId === product.id)
@@ -71,6 +77,7 @@ function App() {
     })
   }
 
+  // Ajusta quantidade garantindo limites seguros.
   function changeQty(productId, nextQty) {
     setCart((prev) => {
       const safeQty = Math.max(1, Math.min(99, Number(nextQty) || 1))
@@ -78,6 +85,7 @@ function App() {
     })
   }
 
+  // Remove item do carrinho pelo id.
   function removeItem(productId) {
     setCart((prev) => prev.filter((i) => i.productId !== productId))
   }
@@ -91,6 +99,7 @@ function App() {
         cartCount={cartCount}
       />
 
+      {/* Banner de erro geral da camada HTTP. */}
       {error ? (
         <div className="banner error" role="alert">
           <div>
@@ -102,6 +111,7 @@ function App() {
         </div>
       ) : null}
 
+      {/* Resumo do ultimo pedido enviado. */}
       {lastOrder ? (
         <div className="banner ok">
           {'Último pedido: '}
@@ -132,8 +142,10 @@ function App() {
             </div>
           </div>
 
+          {/* Painel extra com exemplos de componentes Bootstrap. */}
           <ShowcasePanel />
 
+          {/* Grade de produtos com selecao e acao de adicionar. */}
           <ProductGrid
             products={filteredProducts}
             selectedProductId={selectedProductId}
@@ -141,9 +153,11 @@ function App() {
             onAddToCart={addToCart}
           />
 
+          {/* Formulario de checkout e envio de pedido. */}
           <CheckoutForm cart={cart} total={total} onOrderSent={setLastOrder} post={post} />
         </main>
 
+        {/* Lateral do carrinho com total e edicao de quantidade. */}
         <CartSidebar cart={cart} onChangeQty={changeQty} onRemoveItem={removeItem} total={total} />
       </div>
 

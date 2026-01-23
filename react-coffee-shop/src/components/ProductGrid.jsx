@@ -12,6 +12,7 @@ export function ProductGrid({ products, selectedProductId, onSelect, onAddToCart
       </div>
 
       <div className="grid">
+        {/* Lista os produtos com destaque para o item selecionado. */}
         {products.map((p) => (
           <ProductCard
             key={p.id}

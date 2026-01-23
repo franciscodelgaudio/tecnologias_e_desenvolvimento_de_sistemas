@@ -1,5 +1,6 @@
 import { useCallback, useState } from 'react'
 
+// Lida com respostas JSON ou texto simples.
 async function readResponseBody(response) {
   const contentType = response.headers.get('content-type') || ''
   if (contentType.includes('application/json')) {
@@ -13,8 +14,10 @@ export function useHttp() {
   const [loadingPost, setLoadingPost] = useState(false)
   const [error, setError] = useState(null)
 
+  // Limpa erros para permitir nova tentativa.
   const clearError = useCallback(() => setError(null), [])
 
+  // Requisicao GET com tratamento de erro padrao.
   const get = useCallback(async (url, options = {}) => {
     setLoadingGet(true)
     setError(null)
@@ -43,6 +46,7 @@ export function useHttp() {
     }
   }, [])
 
+  // Requisicao POST enviando JSON e tratando resposta.
   const post = useCallback(async (url, payload, options = {}) => {
     setLoadingPost(true)
     setError(null)
@@ -75,6 +79,7 @@ export function useHttp() {
     }
   }, [])
 
+  // Flag unica de carregamento para telas com estado global.
   const loading = loadingGet || loadingPost
 
   return { loading, loadingGet, loadingPost, error, clearError, get, post }

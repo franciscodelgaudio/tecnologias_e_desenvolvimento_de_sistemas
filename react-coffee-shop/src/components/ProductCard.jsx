@@ -2,6 +2,7 @@
 import { formatMoneyBRL } from '../utils/format'
 
 export function ProductCard({ product, selected, onSelect, onAdd }) {
+  // Monta texto de tags para exibicao resumida.
   const tagLine = (product.tags || []).join(' - ')
 
   return (
@@ -11,6 +12,7 @@ export function ProductCard({ product, selected, onSelect, onAdd }) {
       role="button"
       tabIndex={0}
       onKeyDown={(e) => {
+        // Permite selecionar via teclado.
         if (e.key === 'Enter') onSelect()
       }}
     >
@@ -31,6 +33,7 @@ export function ProductCard({ product, selected, onSelect, onAdd }) {
             type="button"
             className={styles.button}
             onClick={(e) => {
+              // Evita selecionar o card ao clicar no botao.
               e.stopPropagation()
               onAdd()
             }}

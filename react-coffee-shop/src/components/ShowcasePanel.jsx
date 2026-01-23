@@ -2,14 +2,17 @@ import { useMemo, useState } from 'react'
 import beansIcon from '/coffee-beans.svg'
 import './ShowcasePanel.css'
 
+// Dados estaticos para o card de torra.
 const roastInfo = {
   label: 'Médio',
   intensity: 3,
   humidity: 62,
 }
 
+// Passos de preparo usados nas listas.
 const brewSteps = ['Moer os grãos', 'Aquecer a água', 'Extrair o café']
 
+// Formata a rotulagem da torra.
 function formatRoast(value) {
   return value.toUpperCase()
 }
@@ -19,10 +22,12 @@ export function ShowcasePanel() {
   const [rating, setRating] = useState(4)
   const [focusState, setFocusState] = useState(false)
 
+  // Exibe porcentagem com simbolo.
   const formatPercent = function (value) {
     return `${value}%`
   }
 
+  // Prepara lista em minusculas apenas uma vez.
   const stepsList = useMemo(() => brewSteps.map((step) => step.toLowerCase()), [])
 
   return (
@@ -34,6 +39,7 @@ export function ShowcasePanel() {
             Explore os componentes Bootstrap, listas e tabelas.
           </p>
         </div>
+        {/* Alterna visibilidade do bloco de dicas. */}
         <button
           type="button"
           className="btn btn-outline-light"
@@ -127,6 +133,7 @@ export function ShowcasePanel() {
         </div>
       </div>
 
+      {/* Area de dicas com acordeao e avaliacao. */}
       {showTips ? (
         <div className="accordion mt-4" id="tipsAccordion">
           <div className="accordion-item">
@@ -199,6 +206,7 @@ export function ShowcasePanel() {
         </div>
       ) : null}
 
+      {/* Carrossel com imagens externas. */}
       <div id="coffeeCarousel" className="carousel slide mt-4" data-bs-ride="carousel">
         <div className="carousel-indicators">
           <button

@@ -11,6 +11,7 @@ export function Header({ title, searchTerm, onSearchTermChange, cartCount, viewp
         </div>
       </div>
 
+      {/* Campo de busca com limpeza pelo ESC. */}
       <div className="searchWrap">
         <input
           id="search"
@@ -25,6 +26,7 @@ export function Header({ title, searchTerm, onSearchTermChange, cartCount, viewp
         />
       </div>
 
+      {/* Indicador simples da quantidade no carrinho. */}
       <div className="cartBadge" title="Itens no carrinho">
         Sacola: <strong>{cartCount}</strong>
       </div>
